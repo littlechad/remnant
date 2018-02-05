@@ -15,22 +15,16 @@ const {
   getState: getIndexState,
 } = namespaceConfig('index', DEFAULT_STATE)
 
-const setState = action('setState', (state, data) => {
-  console.log(data)
-  return {
-    ...state,
-    open: data,
-  }
-})
+const setState = action('setState', (state, data) => ({
+  ...state,
+  open: data,
+}))
 
-const mapStateToProps = (state) => {
-  console.log('state', state)
-  return {
-    open: getIndexState(state, 'open'),
-    title: getIndexState(state, 'title'),
-    description: getIndexState(state, 'description'),
-  }
-}
+const mapStateToProps = state => ({
+  open: getIndexState(state, 'open'),
+  title: getIndexState(state, 'title'),
+  description: getIndexState(state, 'description'),
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   handleOpen() {

@@ -22,7 +22,6 @@ const styles = theme => ({
 })
 
 const Index = (props) => {
-  console.log(props)
   const {
     title, description, classes, open,
   } = props
